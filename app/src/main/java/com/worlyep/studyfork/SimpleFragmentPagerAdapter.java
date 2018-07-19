@@ -6,6 +6,10 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
+import com.worlyep.studyfork.fragment.AllSongListFragment;
+import com.worlyep.studyfork.fragment.FavoriteSongListFragment;
+import com.worlyep.studyfork.fragment.MySongListFragment;
+
 public class SimpleFragmentPagerAdapter extends FragmentPagerAdapter {
 
     private Context mContext;
@@ -17,7 +21,13 @@ public class SimpleFragmentPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public Fragment getItem(int i) {
-        return null;
+        if (i == 0) {
+            return new MySongListFragment();
+        } else if (i == 1) {
+            return new AllSongListFragment();
+        } else {
+            return new FavoriteSongListFragment();
+        }
     }
 
     @Override
