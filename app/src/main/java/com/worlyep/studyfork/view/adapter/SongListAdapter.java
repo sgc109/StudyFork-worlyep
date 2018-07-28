@@ -16,11 +16,9 @@ import java.util.List;
 
 public class SongListAdapter extends RecyclerView.Adapter<SongListAdapter.SongViewHolder> {
     List<Song> mSongs;
-    Context mContext;
 
-    public SongListAdapter(Context context) {
+    public SongListAdapter() {
         super();
-        mContext = context;
         mSongs = new ArrayList<>();
     }
 
@@ -42,16 +40,22 @@ public class SongListAdapter extends RecyclerView.Adapter<SongListAdapter.SongVi
         return mSongs.size();
     }
 
+    public void setSongList(List<Song> songList) {
+        mSongs = songList;
+        notifyDataSetChanged();
+    }
+
     public static class SongViewHolder extends RecyclerView.ViewHolder {
-        ItemSongBinding mItemSongBinding;
+        ItemSongBinding mBinding;
 
         public SongViewHolder(ItemSongBinding itemSongBinding) {
             super(itemSongBinding.getRoot());
-            mItemSongBinding = itemSongBinding;
+            mBinding = itemSongBinding;
         }
 
         public void bind(Song song) {
-            mItemSongBinding.setSong(song);
+            mBinding.setSong(song);
+            mBinding.executePendingBindings();
         }
     }
 }
