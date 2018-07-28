@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
         TabLayout tabLayout = binding.tabLayout;
         tabLayout.setupWithViewPager(viewPager);
 
-        adapter = new SimpleFragmentPagerAdapter(getSupportFragmentManager(), getApplication());
+        adapter = new SimpleFragmentPagerAdapter(getApplication(), getSupportFragmentManager());
         binding.setAdapter(adapter);
     }
 }

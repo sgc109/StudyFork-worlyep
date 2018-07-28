@@ -15,22 +15,21 @@ import java.util.List;
 
 public class SimpleFragmentPagerAdapter extends FragmentPagerAdapter {
 
-    private Context mContext;
     private List<Fragment> mFragments;
     private List<String> mTitles;
 
+
     public SimpleFragmentPagerAdapter(Context context, FragmentManager fm) {
         super(fm);
-        mContext = context;
         mFragments = new ArrayList<>();
         mFragments.add(SongListFragment.newInstance(TabType.MYSONG));
         mFragments.add(SongListFragment.newInstance(TabType.ALL));
         mFragments.add(SongListFragment.newInstance(TabType.FAVORITE));
 
         mTitles = new ArrayList<>();
-        mTitles.add(mContext.getString(R.string.tab_title_my));
-        mTitles.add(mContext.getString(R.string.tab_title_all));
-        mTitles.add(mContext.getString(R.string.tab_title_favorite));
+        mTitles.add(context.getString(R.string.tab_title_my));
+        mTitles.add(context.getString(R.string.tab_title_all));
+        mTitles.add(context.getString(R.string.tab_title_favorite));
     }
 
     @Override
