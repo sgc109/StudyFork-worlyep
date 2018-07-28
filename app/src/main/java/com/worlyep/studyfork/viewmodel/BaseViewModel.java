@@ -1,6 +1,6 @@
 package com.worlyep.studyfork.viewmodel;
 
-public interface ViewModel {
+public interface BaseViewModel {
     void onCreate();
     void onResume();
     void onPause();
