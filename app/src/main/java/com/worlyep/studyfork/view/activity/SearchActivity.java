@@ -1,5 +1,6 @@
 package com.worlyep.studyfork.view.activity;
 
+import android.arch.lifecycle.ViewModelProviders;
 import android.content.Context;
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
@@ -23,7 +24,7 @@ public class SearchActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        mViewModel = new SearchViewModel(this);
+        mViewModel = ViewModelProviders.of(this).get(SearchViewModel.class);
         ActivitySearchBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_search);
         binding.setViewmodel(mViewModel);
         setSupportActionBar(binding.tbSearch);

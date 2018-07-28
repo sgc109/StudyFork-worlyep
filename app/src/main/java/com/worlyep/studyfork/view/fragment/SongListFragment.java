@@ -11,6 +11,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.view.PagerAdapter;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -51,6 +52,7 @@ public class SongListFragment extends Fragment {
     private void observeViewModel(SongListViewModel viewModel) {
         viewModel.getSongListObservable().observe(this, (songs) -> {
             if (songs != null) {
+                Log.d("sgc109_debug", "setSongList()!");
                 mSongAdapter.setSongList(songs);
             }
         });

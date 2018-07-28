@@ -2,6 +2,7 @@ package com.worlyep.studyfork.repository;
 
 import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.MutableLiveData;
+import android.util.Log;
 
 import com.worlyep.studyfork.model.Song;
 import com.worlyep.studyfork.network.RetrofitClient;
@@ -30,7 +31,10 @@ public class SongRepository {
         RetrofitClient.getClient().create(SongService.class).getSongList().enqueue(new Callback<List<Song>>() {
             @Override
             public void onResponse(Call<List<Song>> call, Response<List<Song>> response) {
-                data.setValue(response.body());
+                if(response.code() == 200) {
+                    Log.d("sgc109_debug", "onReponse : 200 OK!\n");
+                    data.setValue(response.body());
+                }
             }
 
             @Override
