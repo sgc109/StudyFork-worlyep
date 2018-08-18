@@ -3,6 +3,7 @@ package com.worlyep.studyfork.network;
 import com.worlyep.studyfork.BuildConfig;
 
 import retrofit2.Retrofit;
+import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RetrofitClient {
@@ -19,7 +20,9 @@ public class RetrofitClient {
             //to get string response
             //.addConverterFactory(ScalarsConverterFactory.create()OkHttpGenerator);
             builder.client(OkHttpGenerator.getInstance(BuildConfig.DEBUG));
-            retrofit = builder.build();
+            retrofit = builder
+                    .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                    .build();
         }
         return retrofit;
     }
