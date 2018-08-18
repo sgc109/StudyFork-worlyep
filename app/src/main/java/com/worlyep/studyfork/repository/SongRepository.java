@@ -38,7 +38,7 @@ public class SongRepository {
                 .observeOn(AndroidSchedulers.mainThread())
                 .map(response -> response.body())
                 .subscribe(songs -> data.setValue(songs),
-                        throwable -> { Log.d("sgc109", throwable.getMessage()); });
+                        throwable -> Log.d("sgc109", throwable.getMessage()));
         return data;
     }
 }
