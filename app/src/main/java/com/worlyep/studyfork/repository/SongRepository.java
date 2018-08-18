@@ -39,20 +39,6 @@ public class SongRepository {
                 .map(response -> response.body())
                 .subscribe(songs -> data.setValue(songs),
                         throwable -> { Log.d("sgc109", throwable.getMessage()); });
-//                .enqueue(new Callback<List<Song>>() {
-//            @Override
-//            public void onResponse(Call<List<Song>> call, Response<List<Song>> response) {
-//                if(response.code() == 200) {
-//                    Log.d("sgc109_debug", "onReponse : 200 OK!\n");
-//                    data.setValue(response.body());
-//                }
-//            }
-//
-//            @Override
-//            public void onFailure(Call<List<Song>> call, Throwable t) {
-//
-//            }
-//        });
         return data;
     }
 }
