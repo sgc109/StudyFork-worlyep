@@ -6,7 +6,7 @@ public class Song {
     private String singer;
     private KaraokeType karaokeTypeType;
     private int code;
-    boolean isFavorites;
+    private boolean isFavorites;
     private String title;
 
     public String getTitle() {

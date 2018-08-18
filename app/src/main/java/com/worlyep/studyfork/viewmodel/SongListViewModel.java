@@ -15,6 +15,7 @@ import java.util.List;
 public class SongListViewModel extends AndroidViewModel implements BaseViewModel{
     private final LiveData<List<Song>> songListObservable;
     ObservableBoolean progBarVisib = new ObservableBoolean();
+    private int tabType;
 
     public SongListViewModel(@NonNull Application application) {
         super(application);
@@ -44,5 +45,9 @@ public class SongListViewModel extends AndroidViewModel implements BaseViewModel
     @Override
     public void onDestroy() {
 
+    }
+
+    public void setTabType(int tabType) {
+        this.tabType = tabType;
     }
 }

@@ -1,18 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
-    <data>
-    </data>
+
+    <data></data>
+
     <FrameLayout xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".view.fragment.SongListFragment">
 
         <android.support.v7.widget.RecyclerView
-            tools:listitem="@android:layout/simple_list_item_checked"
             android:id="@+id/all_song_list_recycler_view"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-
-
+            android:layout_height="match_parent"
+            tools:listitem="@android:layout/simple_list_item_checked" />
     </FrameLayout>
 </layout>
