@@ -18,6 +18,7 @@ class MainActivity : AppCompatActivity() {
 
         val viewModel = ViewModelProviders.of(this).get(MainViewModel::class.java)
         val binding: ActivityMainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main)
+
         binding.viewmodel = viewModel
 
         val viewPager = binding.viewpager

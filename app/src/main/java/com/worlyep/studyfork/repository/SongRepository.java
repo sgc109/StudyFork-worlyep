@@ -34,7 +34,6 @@ public class SongRepository {
         RetrofitClient.getClient()
                 .create(SongService.class)
                 .getSongList()
-                .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .map(response -> response.body())
                 .subscribe(songs -> data.setValue(songs),

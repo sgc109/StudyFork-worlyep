@@ -1,45 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="song"
             type="com.worlyep.studyfork.model.Song" />
     </data>
 
-    <LinearLayout
+    <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:orientation="horizontal">
+        android:layout_height="wrap_content">
 
-        <FrameLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_star"
-                android:tint="@color/colorPrimary" />
-        </FrameLayout>
-
-        <TextView
-            tools:text="title"
+        <ImageView
+            android:id="@+id/favorite_star_image_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text='@{song.title == null ? "" : song.title}'/>
+            android:layout_marginBottom="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:src="@drawable/ic_star_empty"
+            android:tint="@color/colorPrimary"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
 
         <TextView
-            tools:text="singer"
-            android:layout_width="wrap_content"
+            android:id="@+id/song_title_text_view"
+            android:layout_width="275dp"
             android:layout_height="wrap_content"
-            android:text='@{song.singer == null ? "" : song.singer}' />
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginTop="8dp"
+            android:text='@{song.title}'
+            android:textSize="18dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/song_code_text_view"
+            app:layout_constraintStart_toEndOf="@+id/favorite_star_image_view"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.266"
+            tools:text="title" />
 
         <TextView
-            tools:text="code"
+            android:id="@+id/song_singer_text_view"
+            android:layout_width="275dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:text='@{song.singer}'
+            android:textColor="#55000000"
+            android:textSize="14dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/song_code_text_view"
+            app:layout_constraintStart_toEndOf="@+id/favorite_star_image_view"
+            app:layout_constraintTop_toBottomOf="@+id/song_title_text_view"
+            tools:text="singer" />
+
+        <TextView
+            android:id="@+id/song_code_text_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text='@{song.code == 0 ? "" : song.code}' />
-    </LinearLayout>
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginTop="8dp"
+            android:text='@{song.code}'
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="code" />
+    </android.support.constraint.ConstraintLayout>
 </layout>

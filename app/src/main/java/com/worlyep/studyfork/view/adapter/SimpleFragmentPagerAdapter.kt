@@ -16,7 +16,6 @@ class SimpleFragmentPagerAdapter(context: Context, fm: FragmentManager) : Fragme
     private val mFragments: MutableList<Fragment>
     private val mTitles: MutableList<String>
 
-
     init {
         mFragments = ArrayList()
         mFragments.add(SongListFragment.newInstance(TabType.MYSONG))

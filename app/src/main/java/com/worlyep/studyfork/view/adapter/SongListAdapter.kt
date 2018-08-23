@@ -11,8 +11,11 @@ import java.util.*
 import kotlin.collections.ArrayList
 
 class SongListAdapter : RecyclerView.Adapter<SongListAdapter.SongViewHolder>() {
-    var mSongs: List<Song> = ArrayList()
-        set(songList: List<Song>) {
+    var mSongs: MutableList<Song> = ArrayList()
+        set(songList: MutableList<Song>) {
+            for (song in songList){
+                song.title = song.title?.replace("\\\"", "\"")
+            }
             field = songList
             notifyDataSetChanged()
         }

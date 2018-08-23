@@ -2,6 +2,7 @@ package com.worlyep.studyfork.network;
 
 import com.worlyep.studyfork.BuildConfig;
 
+import io.reactivex.schedulers.Schedulers;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -15,13 +16,10 @@ public class RetrofitClient {
 
         public static Retrofit getClient() {
         if (retrofit == null) {
-            Retrofit.Builder builder = new Retrofit.Builder().baseUrl(BASE_URL)
-                    .addConverterFactory(GsonConverterFactory.create());
-            //to get string response
-            //.addConverterFactory(ScalarsConverterFactory.create()OkHttpGenerator);
-            builder.client(OkHttpGenerator.getInstance(BuildConfig.DEBUG));
-            retrofit = builder
-                    .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+            retrofit = new Retrofit.Builder().baseUrl(BASE_URL)
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .addCallAdapterFactory(RxJava2CallAdapterFactory.createWithScheduler(Schedulers.io()))
+                    .client(OkHttpGenerator.getInstance(BuildConfig.DEBUG))
                     .build();
         }
         return retrofit;
